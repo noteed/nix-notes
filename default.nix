@@ -12,5 +12,6 @@ rec {
 
   # Build with nix-build -A <attr>
   image = os.config.system.build.digitalOceanImage;
+  toplevel = os.config.system.build.toplevel;
   site = (import site/default.nix).html.all;
 }

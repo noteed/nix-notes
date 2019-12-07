@@ -63,6 +63,14 @@ we'll see how to update an existing virtual machine with this static site,
 without rebuilding an image or a droplet. [More.](site/site.md)
 
 
+### Toplevel: updating a running virtual machine
+
+In this commit, we add a new `toplevel` attribute, and a `deploy.sh` script.
+The toplevel corresponds to the content of a virtual machine (before it is
+packaged as such), and the `deploy.sh` script syncs an existing NixOS machine
+so that it matches the new toplevel. [More.](site/toplevel.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
