@@ -46,3 +46,21 @@ machinery to do the heavy lifting is in nixpkgs. [More.](site/image.md)
 In this commit, we talk about two files that are in fact non under version-control.
 They are used to store credentials for two command-line tools: `s3cmd` and `doctl`.
 [More.](site/credentials.md)
+
+
+### Deploying the image to Digital Ocean
+
+In this commit, we add two scripts using the `s3cmd` and `doctl` tools. They
+use the credentials introduced in the previous commit: `s3cmd` uploads to S3
+the image built in the commit before, and `doctl` is used to import the image
+into Digital Ocean then spin a new virtual machine. [More.](site/deploying.md)
+
+
+## Details
+
+The `configuration.nix` file is taken from the
+[nixos-generators](https://github.com/nix-community/nixos-generators) project,
+which makes it easy to build images in various formats, including the one used
+here.
+
+I use the same Digital Ocean facility for both S3 and the droplets (i.e. ams3).
