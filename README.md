@@ -39,3 +39,10 @@ $ NIX_PATH=nixpkgs=../nixpkgs nix-shell -p doctl
 In this commit, we introduce a short Nix expression to build a virtual machine
 image that can be run on Digital Ocean. The expression is short because all the
 machinery to do the heavy lifting is in nixpkgs. [More.](site/image.md)
+
+
+### Aside: environment variables used for credentials
+
+In this commit, we talk about two files that are in fact non under version-control.
+They are used to store credentials for two command-line tools: `s3cmd` and `doctl`.
+[More.](site/credentials.md)
