@@ -71,6 +71,11 @@ packaged as such), and the `deploy.sh` script syncs an existing NixOS machine
 so that it matches the new toplevel. [More.](site/toplevel.md)
 
 
+### Running the configuration inside a local VM
+
+[More.](site/runvm.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
