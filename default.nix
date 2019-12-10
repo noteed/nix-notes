@@ -26,4 +26,5 @@ rec {
   site = (import site/default.nix).html.all;
   crontab = os.config.environment.etc.crontab;
   runvm = qemu.config.system.build.vm;
+  docker = import ./docker.nix;
 }
