@@ -76,6 +76,12 @@ so that it matches the new toplevel. [More.](site/toplevel.md)
 [More.](site/runvm.md)
 
 
+### Using cron to run scheduled jobs
+
+In this commit, we add a very simple system crontab demonstrating how to run a
+simple command every five minutes. [More.](site/cron.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
