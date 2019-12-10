@@ -90,6 +90,13 @@ This also shows how to register the application as a Systemd unit.
 [More.](site/app.md)
 
 
+### Packaging our application as a Docker image
+
+Building Docker images is a useful way to start using Nix where Docker is
+already established. In this commit, we show how to build a Docker image
+containing the application we have created in the previous commit. [More.](site/docker.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
