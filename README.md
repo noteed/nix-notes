@@ -19,6 +19,10 @@ In other words, running `git log --patch --reverse` should be a readable
 tutorial about Nix and NixOS. Indeed, the following table of content is
 generated with `git log --reverse`!
 
+If you have never used Nix before, you may want to start with the [Introduction
+to Nix](site/intro/index.md), although starting directly below should be more
+fun.
+
 
 ## Bleeding edge
 
@@ -95,6 +99,12 @@ This also shows how to register the application as a Systemd unit.
 Building Docker images is a useful way to start using Nix where Docker is
 already established. In this commit, we show how to build a Docker image
 containing the application we have created in the previous commit. [More.](site/docker.md)
+
+
+### Introduction to Nix
+
+In these commits, we add a few examples to learn Nix.
+[More.](site/intro/index.md)
 
 
 ## Details
