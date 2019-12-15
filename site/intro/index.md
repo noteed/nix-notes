@@ -8,3 +8,4 @@ footer: © Võ Minh Thu, 2019.
 
 - [Minimal examples](example-0.md)
 - [Evaluating expressions](expressions.md)
+- [More expressions](more-expressions.md)
