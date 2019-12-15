@@ -23,7 +23,7 @@ in
 {
   services.sshd.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 80 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   users.users.root.password = "nixos";
   services.openssh.permitRootLogin = lib.mkDefault "yes";
@@ -32,6 +32,8 @@ in
   services.nginx = {
     enable = true;
     virtualHosts."noteed.com" = {
+      forceSSL = true;
+      enableACME = true;
       locations = {
         "/add".proxyPass = "http://127.0.0.1:8000";
         "/gitcraft/".alias = (import gitcraft {}).html.all + "/";
@@ -40,6 +42,10 @@ in
         "/".alias = (import noteed-github-com {}).html.all + "/";
       };
     };
+  };
+
+  security.acme.certs = {
+    "noteed.com".email = "noteed@gmail.com";
   };
 
   services.cron = {
