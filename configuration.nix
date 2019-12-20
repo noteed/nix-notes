@@ -38,7 +38,7 @@ in
         "/add".proxyPass = "http://127.0.0.1:8000";
         "/gitcraft/".alias = (import gitcraft {}).html.all + "/";
         "/git-notes/".alias = (import git-notes).site + "/";
-        "/nix-notes/".alias = (import ./site).html.all + "/";
+        "/nix-notes/".alias = (import ./site {}).html.all + "/";
         "/".alias = (import noteed-github-com {}).html.all + "/";
       };
     };
