@@ -15,6 +15,10 @@ let
 in {
   virtualisation.graphics = false;
   virtualisation.qemu.options = [ "-serial mon:stdio" ];
+  virtualisation.qemu.networkingOptions = [
+    "-net nic,netdev=user.0,model=virtio"
+    "-netdev user,id=user.0\${QEMU_NET_OPTS:+,$QEMU_NET_OPTS},hostfwd=tcp::8088-:80,hostfwd=tcp::8022-:22"
+  ];
 
   environment.systemPackages = [ resize ];
   environment.loginShellInit = "${resize}/bin/resize";
