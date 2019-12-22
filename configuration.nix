@@ -33,5 +33,15 @@
   systemd.services.app = {
     wantedBy = [ "multi-user.target" ];
     script = "${import ./app}/bin/app";
-};
+  };
+
+  services.ssmtp = {
+    enable = true;
+    hostName = "smtp.fastmail.com:465";
+    domain = "noteed.com";
+    useTLS = true;
+    authUser = "thu@fastmail.com";
+    authPassFile = "/run/keys/ssmtp-authpass";
+    setSendmail = true;
+  };
 }
