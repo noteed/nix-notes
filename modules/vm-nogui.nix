@@ -13,8 +13,13 @@ let
     stty cols "$cols" rows "$rows"
   '';
 in {
+  virtualisation.memorySize = 1024;
   virtualisation.graphics = false;
   virtualisation.qemu.options = [ "-serial mon:stdio" ];
+  virtualisation.qemu.networkingOptions = [
+    "-net nic,netdev=user.0,model=virtio"
+    "-netdev user,id=user.0\${QEMU_NET_OPTS:+,$QEMU_NET_OPTS},hostfwd=tcp::8180-:80,hostfwd=tcp::8122-:22"
+  ];
 
   environment.systemPackages = [ resize ];
   environment.loginShellInit = "${resize}/bin/resize";
