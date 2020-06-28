@@ -1,5 +1,6 @@
 { pkgs,
   nix-notes-version,
+  additional-locations,
   ... }:
 let
   gitcraft-version = "96bc18ade14dca67da208b0a739f955f611cc2d5";
@@ -30,7 +31,7 @@ let
   };
 
 in
-{
+rec {
   site = nix-notes.html.all;
   locations = {
     "/add".proxyPass = "http://127.0.0.1:8000";
@@ -43,5 +44,5 @@ in
     };
     "/static/".alias = nix-notes.static + "/";
     "/".alias = (import noteed-com {}).site + "/";
-  };
+  } // additional-locations;
 }
