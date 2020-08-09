@@ -1,9 +1,14 @@
 { nixpkgs ? <nixpkgs>
 , system ? builtins.currentSystem
+, nix-notes-version ? "not-given"
 }:
+let
+  pkgs = import nixpkgs {};
+in
 rec {
   os = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
+    extraArgs = { inherit nix-notes-version; };
     modules = [
       ./configuration.nix
       "${toString nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix"
@@ -12,6 +17,7 @@ rec {
 
   qemu = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
+    extraArgs = { inherit nix-notes-version; };
     modules = [
       ./configuration.nix
       "${toString nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
@@ -23,7 +29,7 @@ rec {
   image = os.config.system.build.digitalOceanImage;
   toplevel = os.config.system.build.toplevel;
   app = import ./app;
-  site = (import site/default.nix {}).html.all;
+  site = (import ./vhost.nix { inherit pkgs nix-notes-version; }).site;
   crontab = os.config.environment.etc.crontab;
   runvm = qemu.config.system.build.vm;
   docker = import ./docker.nix;

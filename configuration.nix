@@ -1,4 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs,
+  nix-notes-version,
+  ... }:
 {
   services.sshd.enable = true;
 

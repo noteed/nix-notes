@@ -9,7 +9,9 @@ set -euo pipefail
 TARGET="root@165.22.200.188"
 
 echo Building toplevel...
-PROFILE_PATH="$(nix-build --no-out-link -A toplevel)"
+GIT_DESCRIBE=$(git describe --dirty --long)
+PROFILE_PATH="$(nix-build --no-out-link -A toplevel \
+  --argstr nix-notes-version $GIT_DESCRIBE)"
 echo $PROFILE_PATH
 
 echo Copying toplevel closure to target system...
