@@ -23,7 +23,7 @@ rec {
   image = os.config.system.build.digitalOceanImage;
   toplevel = os.config.system.build.toplevel;
   app = import ./app;
-  site = (import site/default.nix).html.all;
+  site = (import site/default.nix {}).html.all;
   crontab = os.config.environment.etc.crontab;
   runvm = qemu.config.system.build.vm;
   docker = import ./docker.nix;
