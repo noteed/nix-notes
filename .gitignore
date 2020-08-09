@@ -1,3 +1,4 @@
 .envrc
 s3-config
 .*.swp
+secrets/ssmtp-authpass
