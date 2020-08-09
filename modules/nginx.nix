@@ -35,4 +35,9 @@ in
       };
     };
   };
+
+  security.acme.acceptTerms = true;
+  security.acme.certs = {
+    "noteed.com".email = "noteed@gmail.com";
+  };
 }
