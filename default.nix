@@ -23,5 +23,6 @@ rec {
   image = os.config.system.build.digitalOceanImage;
   toplevel = os.config.system.build.toplevel;
   site = (import site/default.nix).html.all;
+  crontab = os.config.environment.etc.crontab;
   runvm = qemu.config.system.build.vm;
 }

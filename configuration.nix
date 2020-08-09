@@ -9,6 +9,7 @@
   services.mingetty.autologinUser = lib.mkDefault "root";
 
   imports = [
+    modules/cron.nix
     modules/nginx.nix
   ];
 }
