@@ -14,5 +14,6 @@
     modules/app.nix
     modules/cron.nix
     modules/nginx.nix
+    modules/ssmtp.nix
   ];
 }

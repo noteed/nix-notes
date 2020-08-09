@@ -17,6 +17,9 @@ echo $PROFILE_PATH
 echo Copying toplevel closure to target system...
 nix-copy-closure --to --use-substitutes $TARGET $PROFILE_PATH
 
+echo Copying secrets to target system...
+scp secrets/ssmtp-authpass $TARGET:/run/keys/ssmtp-authpass
+
 echo Activating copied toplevel...
 ssh $TARGET -- \
   "nix-env --profile /nix/var/nix/profiles/system --set $PROFILE_PATH && \
