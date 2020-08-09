@@ -1,0 +1,21 @@
+name:                app
+version:             0.0.0
+Cabal-Version:       >= 1.8
+synopsis:            Example Servant app
+description:         This is a example Servant application for nix-notes.
+category:            System
+license:             BSD2
+license-file:        LICENSE
+author:              Vo Minh Thu
+maintainer:          thu@hypered.io
+build-type:          Simple
+
+executable app
+  hs-source-dirs: ./
+  main-is:        app.hs
+  build-depends:
+    base == 4.*,
+    servant-server,
+    warp
+  ghc-options:
+    -Wall

@@ -82,6 +82,14 @@ In this commit, we add a very simple system crontab demonstrating how to run a
 simple command every five minutes. [More.](site/cron.md)
 
 
+### A simple Servant-based HTTP backend service
+
+In this commit, we add a simple Haskell application using Servant. It listens
+on port 8000 and we modify the Nginx configuration to forward requests to it.
+This also shows how to register the application as a Systemd unit.
+[More.](site/app.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
