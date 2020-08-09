@@ -56,6 +56,13 @@ the image built in the commit before, and `doctl` is used to import the image
 into Digital Ocean then spin a new virtual machine. [More.](site/deploying.md)
 
 
+### Adding a static site to the Nginx configuration
+
+In this commit, we add a simple static site to our image. In the next commit,
+we'll see how to update an existing virtual machine with this static site,
+without rebuilding an image or a droplet. [More.](site/site.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
