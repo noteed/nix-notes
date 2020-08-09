@@ -107,6 +107,12 @@ In these commits, we add a few examples to learn Nix.
 [More.](site/intro/index.md)
 
 
+### Adding automatic Let's encrypt certificate
+
+In this commit, we use the built-in support for Let's encrypt offered in the
+Nginx module. [More.](site/letsencrypt.md)
+
+
 ## Details
 
 The `configuration.nix` file is taken from the
