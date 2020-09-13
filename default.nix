@@ -26,6 +26,24 @@ rec {
     ];
   };
 
+  virtualbox = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
+    inherit system;
+    extraArgs = { inherit nix-notes-version; };
+    modules = [
+      configuration
+      "${toString nixpkgs}/nixos/modules/virtualisation/virtualbox-image.nix"
+    ];
+  };
+
+  vmware = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
+    inherit system;
+    extraArgs = { inherit nix-notes-version; };
+    modules = [
+      configuration
+      "${toString nixpkgs}/nixos/modules/virtualisation/vmware-image.nix"
+    ];
+  };
+
   # Build with nix-build -A <attr>
   image = os.config.system.build.digitalOceanImage;
   toplevel = os.config.system.build.toplevel;
@@ -34,6 +52,9 @@ rec {
   crontab = os.config.environment.etc.crontab;
   runvm = qemu.config.system.build.vm;
   docker = import ./docker.nix;
+
+  virtualbox-image = virtualbox.config.system.build.virtualBoxOVA;
+  vmware-image = vmware.config.system.build.vmwareImage;
 
   path = "${nixpkgs}";
 }
