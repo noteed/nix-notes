@@ -33,16 +33,17 @@ let
 in
 rec {
   site = nix-notes.html.all;
+  # The commented out things should go into additional-locations.
   locations = {
     "/add".proxyPass = "http://127.0.0.1:8000";
-    "/gitcraft/".alias = (import gitcraft {}).html.all + "/";
-    "/git-notes/".alias = (import git-notes).site + "/";
+    #"/gitcraft/".alias = (import gitcraft {}).html.all + "/";
+    #"/git-notes/".alias = (import git-notes).site + "/";
     "/nix-notes/".alias = nix-notes.html.all + "/";
-    "~ ^/version$" = {
-      alias = nix-notes.html.version;
-      extraConfig = ''default_type "text/html";'';
-    };
+    #"~ ^/version$" = {
+    #  alias = nix-notes.html.version;
+    #  extraConfig = ''default_type "text/html";'';
+    #};
     "/static/".alias = nix-notes.static + "/";
-    "/".alias = (import noteed-com {}).site + "/";
+    #"/".alias = (import noteed-com {}).site + "/";
   } // additional-locations;
 }
