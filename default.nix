@@ -1,5 +1,6 @@
 { nixpkgs ? <nixpkgs>
 , system ? builtins.currentSystem
+, configuration ? ./configuration.nix
 , nix-notes-version ? "not-given"
 }:
 let
@@ -10,7 +11,7 @@ rec {
     inherit system;
     extraArgs = { inherit nix-notes-version; };
     modules = [
-      ./configuration.nix
+      configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix"
     ];
   };
@@ -19,9 +20,9 @@ rec {
     inherit system;
     extraArgs = { inherit nix-notes-version; };
     modules = [
-      ./configuration.nix
+      configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
-      ./vm-nogui.nix
+      modules/vm-nogui.nix
     ];
   };
 

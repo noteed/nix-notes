@@ -6,4 +6,11 @@
 # Note that we need a recent nixpkgs Git repository that knows about the
 # digitalOceanImage attribute.
 
-nix-build -A image
+nix_args=(
+)
+
+if [[ -n $1 ]]; then
+  nix_args+=(--arg configuration "$1")
+fi
+
+nix-build -A image "${nix_args[@]}"

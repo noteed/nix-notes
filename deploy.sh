@@ -6,12 +6,23 @@
 
 set -euo pipefail
 
+nix_args=(
+)
+
+if [[ -n $1 ]]; then
+  nix_args+=(--arg configuration "$1")
+fi
+
 TARGET="root@165.22.200.188"
 
 echo Building toplevel...
 GIT_DESCRIBE=$(git describe --dirty --long)
-PROFILE_PATH="$(nix-build --no-out-link -A toplevel \
-  --argstr nix-notes-version $GIT_DESCRIBE)"
+PROFILE_PATH="$(nix-build \
+  -A toplevel \
+  --no-out-link \
+  --argstr nix-notes-version $GIT_DESCRIBE \
+  "${nix_args[@]}"
+  )"
 echo $PROFILE_PATH
 
 echo Copying toplevel closure to target system...
