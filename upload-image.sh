@@ -6,7 +6,7 @@
 #
 # "hypered" is the name of my S3 bucket.
 #
-# Note that the image is publicly accessible (although it URL should ne known),
-# don't put sensitive stuff in it.
+# Note that the image is publicly accessible (although its URL should be
+# known); don't put sensitive stuff in it.
 
 s3cmd -c s3-config put result/nixos.qcow2.gz s3://hypered --acl-public
