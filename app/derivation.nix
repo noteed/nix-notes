@@ -1,4 +1,4 @@
-{ mkDerivation, base, servant-server, stdenv, warp }:
+{ mkDerivation, base, lib, servant-server, warp }:
 mkDerivation {
   pname = "app";
   version = "0.0.0";
@@ -7,5 +7,5 @@ mkDerivation {
   isExecutable = true;
   executableHaskellDepends = [ base servant-server warp ];
   description = "Example Servant app";
-  license = stdenv.lib.licenses.bsd2;
+  license = lib.licenses.bsd2;
 }

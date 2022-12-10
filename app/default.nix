@@ -4,4 +4,4 @@ let
 
   f = import ./derivation.nix;
 in
-  callPackage f { stdenv = pkgs.stdenv; }
+  callPackage f { lib = pkgs.lib; }

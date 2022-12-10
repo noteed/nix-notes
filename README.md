@@ -47,7 +47,7 @@ machinery to do the heavy lifting is in nixpkgs. [More.](site/image.md)
 
 ### Aside: environment variables used for credentials
 
-In this commit, we talk about two files that are in fact non under version-control.
+In this commit, we talk about two files that are in fact not under version-control.
 They are used to store credentials for two command-line tools: `s3cmd` and `doctl`.
 [More.](site/credentials.md)
 

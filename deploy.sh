@@ -13,6 +13,7 @@ if [[ -n $1 ]]; then
   nix_args+=(--arg configuration "$1")
 fi
 
+# This is my host-2 at Digital Ocean.
 TARGET="root@165.22.200.188"
 
 echo Building toplevel...
