@@ -1,4 +1,4 @@
-{ nixpkgs ? (import ../nix/sources.nix).nixpkgs
+{ nixpkgs ? (import ../nix/26.05/nix/sources.nix).nixpkgs
 , nix-notes-version ? "not-given"
 , gitcraft-version ? "not-given"
 , git-notes-version ? "not-given"
@@ -6,16 +6,11 @@
 }:
 
 let
+  sources = import ../nix/26.05/nix/sources.nix;
   pkgs = import nixpkgs {};
 
-  design-system-version = "4d55e94cf514d7e6bd65d6aae537c1d0a798894c";
-  design-system = pkgs.fetchFromGitHub {
-    owner = "hypered";
-    repo = "design";
-    rev = design-system-version;
-    sha256 = "124szwc5mj12pbn8vc9z073bhwhyjgji2xc86jdafpi24d1dsqr4";
-  };
-  inherit (import design-system { inherit nixpkgs; }) template lua-filter replace-md-links static;
+  design-system-version = sources.hypered-design.rev;
+  inherit (import sources.hypered-design) template lua-filter replace-md-links static;
 
   to-html = src: pkgs.runCommand "html" {} ''
     ${pkgs.pandoc}/bin/pandoc \
