@@ -1,6 +1,7 @@
 let
-  pkgs = import <nixpkgs> {};
-  callPackage = pkgs.lib.callPackageWith pkgs.haskell.packages.ghc884;
+  sources = import ../nix/26.05/nix/sources.nix;
+  pkgs = import sources.nixpkgs {};
+  callPackage = pkgs.lib.callPackageWith pkgs.haskellPackages;
 
   f = import ./derivation.nix;
 in

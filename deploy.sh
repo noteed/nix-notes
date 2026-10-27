@@ -16,14 +16,9 @@ fi
 # This is my host-2 at Digital Ocean.
 TARGET="root@165.22.200.188"
 
-# The design-system revision used in site/default.nix relies on <nixpkgs>
-# internally, so we point it to the same pinned nixpkgs.
-NIXPKGS="$(nix-instantiate --eval -E 'toString (import ./nix/sources.nix).nixpkgs' | tr -d '"')"
-
 echo Building toplevel...
 GIT_DESCRIBE=$(git describe --dirty --long)
 PROFILE_PATH="$(nix-build \
-  -I nixpkgs=$NIXPKGS \
   -A toplevel \
   --no-out-link \
   --argstr nix-notes-version $GIT_DESCRIBE \
