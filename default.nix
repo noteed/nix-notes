@@ -1,4 +1,4 @@
-{ nixpkgs ? <nixpkgs>
+{ nixpkgs ? (import ./nix/sources.nix).nixpkgs
 , system ? builtins.currentSystem
 , configuration ? ./configuration.nix
 , nix-notes-version ? "not-given"

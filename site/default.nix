@@ -1,4 +1,4 @@
-{ nixpkgs ? <nixpkgs>
+{ nixpkgs ? (import ../nix/sources.nix).nixpkgs
 , nix-notes-version ? "not-given"
 , gitcraft-version ? "not-given"
 , git-notes-version ? "not-given"
@@ -11,11 +11,11 @@ let
   design-system-version = "4d55e94cf514d7e6bd65d6aae537c1d0a798894c";
   design-system = pkgs.fetchFromGitHub {
     owner = "hypered";
-    repo = "design-system";
+    repo = "design";
     rev = design-system-version;
     sha256 = "124szwc5mj12pbn8vc9z073bhwhyjgji2xc86jdafpi24d1dsqr4";
   };
-  inherit (import design-system {}) template lua-filter replace-md-links static;
+  inherit (import design-system { inherit nixpkgs; }) template lua-filter replace-md-links static;
 
   to-html = src: pkgs.runCommand "html" {} ''
     ${pkgs.pandoc}/bin/pandoc \
@@ -44,7 +44,7 @@ footer: © Võ Minh Thu, 2019. Version ${nix-notes-version}.
 
 
 ----------------------------------------------------------------  ------------------------
-[design-system](https://github.com/hypered/design-system)         ${design-system-version}
+[design](https://github.com/hypered/design)                       ${design-system-version}
 [gitcraft](https://github.com/noteed/gitcraft)                    ${gitcraft-version}
 [git-notes](https://github.com/noteed/git-notes)                  ${git-notes-version}
 [nix-notes](https://github.com/noteed/nix-notes)                  ${nix-notes-version}
