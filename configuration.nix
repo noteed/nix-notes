@@ -9,4 +9,6 @@
     modules/nginx.nix
     modules/ssmtp.nix
   ];
+
+  system.stateVersion = "26.05";
 }

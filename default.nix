@@ -1,4 +1,4 @@
-{ nixpkgs ? (import ./nix/sources.nix).nixpkgs
+{ nixpkgs ? (import ./nix/26.05/nix/sources.nix).nixpkgs
 , system ? builtins.currentSystem
 , configuration ? ./configuration.nix
 , nix-notes-version ? "not-given"
@@ -9,7 +9,7 @@ in
 rec {
   os = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
-    extraArgs = { inherit nix-notes-version; };
+    specialArgs = { inherit nix-notes-version; };
     modules = [
       configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix"
@@ -18,7 +18,7 @@ rec {
 
   qemu = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
-    extraArgs = { inherit nix-notes-version; };
+    specialArgs = { inherit nix-notes-version; };
     modules = [
       configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/qemu-vm.nix"
@@ -28,7 +28,7 @@ rec {
 
   virtualbox = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
-    extraArgs = { inherit nix-notes-version; };
+    specialArgs = { inherit nix-notes-version; };
     modules = [
       configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/virtualbox-image.nix"
@@ -37,7 +37,7 @@ rec {
 
   vmware = import "${toString nixpkgs}/nixos/lib/eval-config.nix" {
     inherit system;
-    extraArgs = { inherit nix-notes-version; };
+    specialArgs = { inherit nix-notes-version; };
     modules = [
       configuration
       "${toString nixpkgs}/nixos/modules/virtualisation/vmware-image.nix"
