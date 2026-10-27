@@ -1,0 +1,12 @@
+---
+nav:
+- name: noteed.com
+  href: "/"
+- name: blog
+  href: "/blog/"
+- name: nix-notes
+  href: "/nix-notes/"
+- name: not-os
+  href: "/not-os/"
+footer: © Võ Minh Thu, 2019-2020.
+---
