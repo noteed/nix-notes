@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "hypered",
         "repo": "design",
-        "rev": "3e48f16303a6d72d6dc07f7bf99b3b1de9d28c47",
-        "sha256": "08h4mq6jjbb95g6wq2na8m628swx0hfsidvz51mdf9lkkabc9661",
+        "rev": "09d149c8dc7f13bddd7f3c23cff74b4da00a2886",
+        "sha256": "1cci9a7hxv4k74645j35f2ida6k545avm5zdbj1zjrhkrbyhcq01",
         "type": "tarball",
-        "url": "https://github.com/hypered/design/archive/3e48f16303a6d72d6dc07f7bf99b3b1de9d28c47.tar.gz",
+        "url": "https://github.com/hypered/design/archive/09d149c8dc7f13bddd7f3c23cff74b4da00a2886.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +29,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1f607aa79b6356ed45d3cd3c8079c196e79efa2c",
-        "sha256": "1s7mrwxqalq59bqklyi3015kr2sy1kvf8a8s6d9ahchv7d3fn39j",
+        "rev": "08d3a97586f6b6343b3b5e799980773629432610",
+        "sha256": "18yjn1zdwhkn2p9yf95xw73pk4qsg2w6w80pc9gv6y11zwqqbag7",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/1f607aa79b6356ed45d3cd3c8079c196e79efa2c.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/08d3a97586f6b6343b3b5e799980773629432610.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
